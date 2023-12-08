@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 ARG SQL_DATABASE
 ARG SQL_USER
@@ -14,6 +14,6 @@ COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY tools/init_mysql.sh /usr/local/bin/init_mysql.sh
 
 # Exécuter le script après le démarrage du service MySQL
-CMD service mysql start && /usr/local/bin/init_mysql.sh && mysqld_safe
+CMD service mariadb start && /usr/local/bin/init_mysql.sh && mysqld_safe
 
 EXPOSE 3306
