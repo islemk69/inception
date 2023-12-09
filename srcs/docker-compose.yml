@@ -19,7 +19,6 @@ services:
     restart: unless-stopped # redémarre tant qu'il n'est pas stoppé 
     expose:   # le port à exposer
       - "3306"
-
   nginx:
     container_name: nginx
     image: nginx
